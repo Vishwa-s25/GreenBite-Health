@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline - GreenBite</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        .offline-container { max-width: 720px; margin: 80px auto; padding: 24px; text-align: center; }
+        .offline-icon { font-size: 56px; margin-bottom: 16px; color: #2ecc71; }
+        .offline-actions { margin-top: 24px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+        .btn { padding: 10px 16px; border-radius: 8px; border: none; cursor: pointer; }
+        .btn-primary { background: #2ecc71; color: #fff; }
+        .btn-secondary { background: #eaeaea; color: #333; }
+    </style>
+    <link rel="manifest" href="manifest.webmanifest">
+    <meta name="theme-color" content="#2ecc71">
+</head>
+<body>
+    <div class="offline-container">
+        <div class="offline-icon">🌿</div>
+        <h1>You're Offline</h1>
+        <p>The page you requested isn't available without an internet connection. You can still browse cached pages if you've visited them before.</p>
+        <div class="offline-actions">
+            <a class="btn btn-primary" href="index.html">Go to Home</a>
+            <button class="btn btn-secondary" onclick="location.reload()">Try Again</button>
+        </div>
+    </div>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js').catch(() => {});
+        }
+    </script>
+</body>
+</html>
+
+
